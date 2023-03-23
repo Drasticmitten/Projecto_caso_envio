@@ -1,4 +1,4 @@
-class Package():
+class Package(object):
     """
      Class used to represent a Package
     """

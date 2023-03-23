@@ -1,4 +1,4 @@
-class Person():
+class Person(object):
 
     def __init__(self, name="name", lastname="lastname", dni=0, phone=0):
         """ Person constructor object.

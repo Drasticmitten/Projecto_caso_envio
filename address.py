@@ -1,5 +1,5 @@
 
-class Address():
+class Address(object):
 
     def __init__(self,
                  house_number=0,
