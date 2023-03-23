@@ -35,6 +35,11 @@ class Package():
         print("Id: ", self._id, "\nWeight: ", self.weight, "\nW_GR_100:",
               W_GR_100, "\nDescription:", self._description, "\nCost: ", self._cost)
 
+    def _equal_(self, objeto):
+        return (self.__id == objeto._id and self._weight == objeto._weight and
+                self._description == objeto._description and self.cost == objeto.cost
+                and self.W_GR_100 == objeto.W_GR_100)
+
     def calculate(self):
         print(f"El costo de envío es del {self._description} es $ ",
               self._cost * self._weight)
@@ -54,6 +59,9 @@ class StandardPackage(Package):
     def _Str_(self):
         super()._Str_()
         print("\nFixed Fee", self.__fixedfee)
+
+    def _equal_(self, objeto):
+        return super()._equal_(objeto) and self.__fixedfee == objeto.__fixedfee
 
     def calculate(self):
         print(f"El costo de envío de {self.__description} es de $ ",
@@ -78,6 +86,9 @@ class OverWeightPackage(Package):
     def calculate(self):
         print(f"El costo por sobre peso de {self.__description} es de $ ",
               (self.__overweight + self.__overweight) * self.__cost)
+
+    def _equal_(self, objeto):
+        return super()._equal_(objeto) and self.__overweight == objeto.__overweight
 
 
 class Person():
@@ -115,6 +126,10 @@ class Person():
     def _Str_(self):
         print("Name: ", self._name, "\nLast Name: ",
               self._lastname, "\nDNI : ", self._dni, "\nPhone: ", self.phone)
+
+    def _equal_(self, objeto):
+        return (self._name == objeto.name and self._lastname == objeto.lastname
+                and self._dni == objeto._dni and self._phone == objeto._phone)
 
 
 class Address():
@@ -165,6 +180,13 @@ class Address():
         print("House number: ", self.house_number, "\nKind Street: ",
               self.__kind_street, "\nStreet Name: ", self.__street_name,
               "\nAddress:", self.__address, "\nPostal code: ", self.__postal_code)
+
+    def _equal_(self, objeto):
+        return (self.__house_number == objeto.__house_number and
+                self.__kind_street == objeto.__kind_street and
+                self.__street_name == objeto.__street_name and
+                self.__address == objeto.__address and
+                self.__postal_code == objeto.__postal_code)
 
 
 class Delivor(Person):
@@ -255,23 +277,34 @@ class Delivor(Person):
         print("Id: ", self.__id, "\nDate: ", self.__date, "\nTime: ",
               self.__time, "\nSender information: ", self.__sender._Str_(),
               "\nReceiver information: ", self.__receiver._Str_(),
-              "\nSender Addres", self.__sender_add._Str_(), 
+              "\nSender Addres", self.__sender_add._Str_(),
               "\nReceiver Address: ", self.__receiver_add._Str_(),
               "\nContact information: ", self.__contact._Str_())
-        for i in range(0 , len( self.__items )):
-            print(f"Package {i} information : ", self.__items[i]._Str_() , "\n")
+        for i in range(0, len(self.__items)):
+            print(f"Package {i} information : ", self.__items[i]._Str_(), "\n")
 
-Enviador = Person('David', 'Carrero', 1027210319, 3135885916)
-Receptor = Person('Juan', 'Cardona', 1020202, 3202020)
-ADD_SEN = Address(50, "Avenida", "Pastrana", 10202, 1040)
-Galletas = Package(1020, 20, "Galletas", 20)
+    def _equal_(self, objeto):
+        return (super._equal_(objeto) and self.__date == objeto.__date and self.__time == objeto.__time and
+                self.__sender._equal_(objeto) == objeto.__sender._equal_(objeto) and
+                self.__receiver._equal_(objeto) == objeto.__receiver._equal_(objeto) and
+                self.__sender_add._equal_(objeto) == objeto.__sender_add._equal_(objeto) and
+                self.__receiver_add._equal_(objeto) == objeto.__receiver_add._equal_(objeto) and
+                self.__contact._equal_(objeto) == objeto.__contact._equal_(objeto) and
+                self.__items._equal_(objeto) == objeto.__items._equal_(objeto) )
+                
 
-Paquete = []
+            
+
+
+Enviador=Person('David', 'Carrero', 1027210319, 3135885916)
+Receptor=Person('Juan', 'Cardona', 1020202, 3202020)
+ADD_SEN=Address(50, "Avenida", "Pastrana", 10202, 1040)
+Galletas=Package(1020, 20, "Galletas", 20)
+
+Paquete=[]
 Paquete.append(Galletas)
 
-Delivor = Delivor("Paquetes", "A domicilio", 1027210319, 3022432177, 402042020,
+Delivor=Delivor("Paquetes", "A domicilio", 1027210319, 3022432177, 402042020,
                   "15/12/2004", '8:00', Enviador, Receptor, ADD_SEN, ADD_SEN,
                   Enviador, Paquete)
 
-# Delivor.get_Receiver().set_Name("David")
-print("Quien lo envía ", Delivor.get_receiver().get_name())
