@@ -36,9 +36,7 @@ class Package():
               W_GR_100, "\nDescription:", self._description, "\nCost: ", self._cost)
 
     def _equal_(self, objeto):
-        return (self.__id == objeto._id and self._weight == objeto._weight and
-                self._description == objeto._description and self.cost == objeto.cost
-                and self.W_GR_100 == objeto.W_GR_100)
+        return self._id == objeto._id
 
     def calculate(self):
         print(f"El costo de envío es del {self._description} es $ ",
@@ -61,7 +59,7 @@ class StandardPackage(Package):
         print("\nFixed Fee", self.__fixedfee)
 
     def _equal_(self, objeto):
-        return super()._equal_(objeto) and self.__fixedfee == objeto.__fixedfee
+        return super.( )
 
     def calculate(self):
         print(f"El costo de envío de {self.__description} es de $ ",
@@ -128,8 +126,7 @@ class Person():
               self._lastname, "\nDNI : ", self._dni, "\nPhone: ", self.phone)
 
     def _equal_(self, objeto):
-        return (self._name == objeto.name and self._lastname == objeto.lastname
-                and self._dni == objeto._dni and self._phone == objeto._phone)
+        return self._dni == objeto._dni
 
 
 class Address():
@@ -284,14 +281,7 @@ class Delivor(Person):
             print(f"Package {i} information : ", self.__items[i]._Str_(), "\n")
 
     def _equal_(self, objeto):
-        return (super._equal_(objeto) and self.__date == objeto.__date and self.__time == objeto.__time and
-                self.__sender._equal_(objeto) == objeto.__sender._equal_(objeto) and
-                self.__receiver._equal_(objeto) == objeto.__receiver._equal_(objeto) and
-                self.__sender_add._equal_(objeto) == objeto.__sender_add._equal_(objeto) and
-                self.__receiver_add._equal_(objeto) == objeto.__receiver_add._equal_(objeto) and
-                self.__contact._equal_(objeto) == objeto.__contact._equal_(objeto) and
-                self.__items._equal_(objeto) == objeto.__items._equal_(objeto) )
-                
+        return self.__id == objeto._id
 
             
 
@@ -307,4 +297,3 @@ Paquete.append(Galletas)
 Delivor=Delivor("Paquetes", "A domicilio", 1027210319, 3022432177, 402042020,
                   "15/12/2004", '8:00', Enviador, Receptor, ADD_SEN, ADD_SEN,
                   Enviador, Paquete)
-
