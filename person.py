@@ -19,7 +19,7 @@ class Person(object):
         self._phone = 0 if phone == None else phone
 
     @property
-    def name(self):
+    def name(self) -> str:
         """ Returns the name of the Person
         :returns : name of Person
         :rtype : str
@@ -27,7 +27,7 @@ class Person(object):
         return self._name
 
     @name.setter
-    def name(self, name):
+    def name(self, name: str):
         """ The name of the person
         :param name : name of Person
         :type : str
@@ -35,7 +35,7 @@ class Person(object):
         self._name = "name" if name == None else name
 
     @property
-    def last_name(self):
+    def last_name(self) -> str:
         """ Returns the last name of the Person
         :returns : last_name of Person
         :rtype : str
@@ -43,7 +43,7 @@ class Person(object):
         return self._lastname
 
     @last_name.setter
-    def last_name(self, lastname):
+    def last_name(self, lastname: str):
         """ The last name of the person
         :param lastname : last name of Person
         :type : str
@@ -51,7 +51,7 @@ class Person(object):
         self._lastname = "lastname" if lastname == None else lastname
 
     @property
-    def dni(self):
+    def dni(self) -> int:
         """ Returns the DNI of the Person
         :returns : dni of Person
         :rtype : int
@@ -59,7 +59,7 @@ class Person(object):
         return self._dni
 
     @dni.setter
-    def dni(self, dni):
+    def dni(self, dni: int):
         """ The DNI of the person
         :param dni: dni of Person
         :type : int
@@ -67,7 +67,7 @@ class Person(object):
         self._dni = 0 if dni == None else dni
 
     @property
-    def phone(self):
+    def phone(self) -> int:
         """ Returns the phone of the Person
         :returns : phone of Person
         :rtype : int
@@ -75,7 +75,7 @@ class Person(object):
         return self._phone
 
     @phone.setter
-    def phone(self, phone):
+    def phone(self, phone : int):
         """ The phone of the person
         :param phone: phone of Person
         :type : int

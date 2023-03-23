@@ -31,11 +31,11 @@ class Package(object):
         return self._id
 
     @id.setter
-    def id(self, id):
+    def id(self, id : int):
         sel._id = 0 if id == None else id
 
     @property
-    def weight(self, weight) -> float:
+    def weight(self, weight : float) -> float:
         """ Returns the weight of the package
         :returns : weight of package
         :rtype : float
@@ -43,7 +43,7 @@ class Package(object):
         return self._weight
 
     @weight.setter
-    def weight(self, weight):
+    def weight(self, weight : float):
         self._weight = 1 if weight == 0 else weight
 
     @property
@@ -55,7 +55,7 @@ class Package(object):
         return self._description
 
     @description.setter
-    def description(self, description):
+    def description(self, description : str):
         self._description = 'description' if 'description' == None else description
 
     @property 
@@ -67,7 +67,7 @@ class Package(object):
         return self._cost
 
     @cost.setter
-    def cost(self, cost):
+    def cost(self, cost : float):
         self._cost = 1.0 if cost == 0.0 else cost
 
     def _Str_(self):

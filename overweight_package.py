@@ -15,6 +15,14 @@ class OverWeightPackage(Package):
         """
         super().__init__(id, weight, description, cost)
         self.__overweight = 1.0 if overweight == 0.0 else overweight
+    
+    @property
+    def overweight(self) -> float:
+        return self.__overweight
+    
+    @overweight.setter
+    def overweight(self, overweight : float):
+        self.__overweight = 1.0 if overweight == 0.0 else overweight
 
     def _Str_(self):
         """ Returns str of overweight package
