@@ -9,10 +9,18 @@ class OverWeightPackage(Package):
                  description="Description",
                  cost=1.0,
                  overweight=1.0):
+        """ The overweight of the package.
+        :param overweight: overweight of package.
+        :type: float
+        """
         super().__init__(id, weight, description, cost)
         self.__overweight = 1.0 if overweight == 0.0 else overweight
 
     def _Str_(self):
+        """ Returns str of overweight package
+        :returns: sting overwight package
+        :rtype: str
+        """
         super()._Str_()
         print("\nOverweight", self.__overweight)
 
@@ -21,4 +29,8 @@ class OverWeightPackage(Package):
               (self.__overweight + self.__overweight) * self.__cost)
 
     def _equal_(self, objeto):
+        """ Returns bool of equality of overweight package objects.
+        :returns: bool overweight
+        :rtype: bool
+        """
         return super()._equal_(objeto) and self.__overweight == objeto.__overweight

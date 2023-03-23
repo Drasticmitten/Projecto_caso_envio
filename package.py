@@ -1,14 +1,33 @@
 class Package():
+    """
+     Class used to represent a Package
+    """
+
     W_GR_100 = 10
 
-    def __init__(self, id=0, weight=1.0, description="Description", cost=1.0):
+    def __init__(self, id: int = 0, weight: float = 1.0, description: str = "Description", cost: float = 1.0):
+        """ Package constructor object.
+        :param id : id of package
+        :type id : int
+        :param weight : weitght of package
+        :type weight: float
+        :param description : description of package
+        :type description : str
+        :param cost : cost of package
+        :type cost : float
+        :rtype : object
+        """
         self._id = 0 if id == None else id
         self._weight = 1 if weight == 0 else weight
         self._description = 'description' if 'description' == None else description
         self._cost = 1.0 if cost == 0.0 else cost
 
     @property
-    def id(self):
+    def id(self) -> int:
+        """ Returns the id of the package.
+        :returns : id of package.
+        :rtype : int
+        """
         return self._id
 
     @id.setter
@@ -16,7 +35,11 @@ class Package():
         sel._id = 0 if id == None else id
 
     @property
-    def weight(self, weight):
+    def weight(self, weight) -> float:
+        """ Returns the weight of the package
+        :returns : weight of package
+        :rtype : float
+        """
         return self._weight
 
     @weight.setter
@@ -24,15 +47,23 @@ class Package():
         self._weight = 1 if weight == 0 else weight
 
     @property
-    def description(self):
+    def description(self) -> str:
+        """ Returns the weight of the package
+        :returns : description of package
+        :rtype : str
+        """
         return self._description
 
     @description.setter
     def description(self, description):
         self._description = 'description' if 'description' == None else description
 
-    @property
-    def cost(self):
+    @property 
+    def cost(self) -> float:
+        """ Returns the cost of the package
+        :returns : cost of package
+        :rtype : float
+        """
         return self._cost
 
     @cost.setter
