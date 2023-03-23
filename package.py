@@ -7,29 +7,37 @@ class Package():
         self._description = 'description' if 'description' == None else description
         self._cost = 1.0 if cost == 0.0 else cost
 
-    def get_id(self):
+    @property
+    def id(self):
         return self._id
 
-    def set_id(self, id):
-        self._id = 0 if id == None else id
+    @id.setter
+    def id(self, id):
+        sel._id = 0 if id == None else id
 
-    def get_weight(self, weight):
+    @property
+    def weight(self, weight):
         return self._weight
 
-    def set_weight(self, weight):
+    @weight.setter
+    def weight(self, weight):
         self._weight = 1 if weight == 0 else weight
 
-    def set_description(self, description):
-        self._description = 'description' if 'description' == None else description
-
-    def get_description(self):
+    @property
+    def description(self):
         return self._description
 
-    def set_cost(self, cost):
-        self._cost = 1.0 if cost == 0.0 else cost
+    @description.setter
+    def description(self, description):
+        self._description = 'description' if 'description' == None else description
 
-    def get_cost(self):
+    @property
+    def cost(self):
         return self._cost
+
+    @cost.setter
+    def cost(self, cost):
+        self._cost = 1.0 if cost == 0.0 else cost
 
     def _Str_(self):
         print("Id: ", self._id, "\nWeight: ", self._weight, "\nW_GR_100:",
